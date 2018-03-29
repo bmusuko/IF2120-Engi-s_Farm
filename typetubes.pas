@@ -8,13 +8,13 @@ const
 
 type
 	daftarBahan = record
-		NamaBahan			: string;
-		HargaSatuan			: longint;
+		NamaBahan		: string;
+		HargaSatuan		: longint;
 		DurasiKadaluarsa	: integer;
 	end;
 	
 	tabDaftarBahan = record
-		tab		: array [arrMin..arrMax] of daftarBahan;
+		tab	: array [arrMin..arrMax] of daftarBahan;
 		neff	: integer;
 	end;
 	
@@ -26,7 +26,7 @@ type
 	end;
 	
 	tabDaftarResep = record
-		tab		: array [arrMin..arrMax] of daftarResep;
+		tab	: array [arrMin..arrMax] of daftarResep;
 		neff	: integer;
 	end;
 	
@@ -36,22 +36,22 @@ type
 	end;
 	
 	tabDaftarInventori = record
-		tab		: array [arrMin..arrMax] of daftarInventori;
+		tab	: array [arrMin..arrMax] of daftarInventori;
 		neff	: integer;
 	
 	statusPengguna = record
-		JumlahEnergi			: integer;
-		JumlahHariHidup			: integer;
+		JumlahEnergi		: integer;
+		JumlahHariHidup		: integer;
 		KapasitasMaxInventori	: integer;
-		JumlahBahanBeli			: integer;
-		JumlahResepMasak		: integer;
+		JumlahBahanBeli		: integer;
+		JumlahResepMasak	: integer;
 		JumlahMakananKadaluarsa	: integer;
-		TotalPemasukan			: longint;
-		TotalPengeluaran		: longint;
+		TotalPemasukan		: longint;
+		TotalPengeluaran	: longint;
 	end;
 	
 	tabStatusPengguna = record
-		tab		: array [arrMin..arrMax] of statusPengguna;
+		tab	: array [arrMin..arrMax] of statusPengguna;
 		neff	: integer;
 	end;
 	
