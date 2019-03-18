@@ -1,3 +1,5 @@
-# TubesDaspro
+IF 2120 - Engi's Farm
+Dasar Pemrograman
 
-Jadi ini github untuk kerja bareng tubes daspro 2018
+Aplikasi game seperti Dinner Dash (simple version) dengan menggunakan pascal
+
