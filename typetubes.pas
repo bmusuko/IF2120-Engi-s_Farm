@@ -1,3 +1,5 @@
+//Versi : 11 April 2018
+
 unit typetubes;
 
 interface
@@ -7,54 +9,99 @@ const
 	arrMax = 20;
 
 type
-	daftarBahan = record
-		NamaBahan			: string;
-		HargaSatuan			: longint;
-		DurasiKadaluarsa	: integer;
+	bahanMentah = record
+		NamaBahanMentah			: string;
+		HargaSatuan				: longint;
+		DurasiKadaluarsa		: integer;
 	end;
 	
-	tabDaftarBahan = record
-		tab		: array [arrMin..arrMax] of daftarBahan;
+	tabBahanMentah = record
+		tab	: array [arrMin..arrMax] of bahanMentah;
 		neff	: integer;
 	end;
 	
-	daftarResep = record
-		NamaResep			: string;
-		HargaJual			: longint;
-		JumlahBahan			: integer;
-		Bahan				: array [1..20] of string; //GTW BENER GA INI
+	bahanOlahan = record
+		NamaBahanOlahan	: string;
+		HargaJual		: longint;
+		JumlahBahan		: integer;
+		Bahan			: array [arrMin..arrMax] of string; 
+		//Durasi kadaluarsa 3 hari
 	end;
 	
-	tabDaftarResep = record
-		tab		: array [arrMin..arrMax] of daftarResep;
+	tabBahanOlahan = record
+		tab		: array [arrMin..arrMax] of bahanOlahan;
 		neff	: integer;
 	end;
 	
-	daftarInventori = record
-		NamaBahanAtauOlahan	: string;
-		DurasiKadaluarsa	: integer;
+	inventoriBahanMentah = record
+		NamaBahanMentah		: string;
+		TanggalBeli			: TDateTime;	
+		Jumlah				: integer;
 	end;
 	
-	tabDaftarInventori = record
-		tab		: array [arrMin..arrMax] of daftarInventori;
+	tabInventoriBahanMentah = record
+		tab	: array [arrMin..arrMax] of inventoriBahanMentah; 
+		//Pembuatan array ini harus dinamis krn inventori dapat diperbesar.
+		//Karena itu besar array tidak dapat didefinisikan sekarang, apalagi dengan konstanta arrMax yang tidak dapat diubah.
+		//Pembuatan array ini harus dilakukan dengan fungsi bawaan Pascal: SetLength(tabInventoriBahanMentah,kapasitas)
 		neff	: integer;
 	end;
 	
-	statusPengguna = record
-		JumlahEnergi			: integer;
-		JumlahHariHidup			: integer;
-		KapasitasMaxInventori	: integer;
-		JumlahBahanBeli			: integer;
-		JumlahResepMasak		: integer;
-		JumlahMakananKadaluarsa	: integer;
-		TotalPemasukan			: longint;
-		TotalPengeluaran		: longint;
+	inventoriBahanOlahan = record
+		NamaBahanOlahan		: string;
+		TanggalBuat			: TDateTime;
+		Jumlah				: integer;
 	end;
 	
-	tabStatusPengguna = record
-		tab		: array [arrMin..arrMax] of statusPengguna;
+	tabInventoriBahanOlahan = record
+		tab	: array [arrMin..arrMax] of inventoriBahanOlahan;
+		//Pembuatan array ini harus dinamis krn inventori dapat diperbesar.
+		//Karena itu besar array tidak dapat didefinisikan sekarang, apalagi dengan konstanta arrMax yang tidak dapat diubah.
+		//Pembuatan array ini harus dilakukan dengan fungsi bawaan Pascal: SetLength(tabInventoriBahanOlahan,kapasitas)
 		neff	: integer;
 	end;
+	
+	resep = record
+		NamaResep		: string;
+		HargaJual		: longint;
+		JumlahBahan		: integer;
+		Bahan			: array[arrMin..arrMax] of string;
+	end;
+	
+	tabResep = record
+		tab 	: array [arrMin..arrMax] of resep;
+		neff	: integer;
+	end;
+	
+	simulasi = record
+		NomorSimulasi					: integer;
+		Tanggal							: TDateTime;
+		JumlahHariHidup					: integer;
+		JumlahEnergi					: integer;
+		KapasitasMaksimumInventori		: integer;
+		TotalBahanMentahDibeli			: integer;
+		TotalBahanOlahanDibuat			: integer;
+		TotalBahanOlahanDijual			: integer;
+		TotalResepDijual				: integer;
+		TotalPemasukan					: longint;
+		TotalPengeluaran				: longint;
+		TotalUang						: longint;
+
+		//Diluar file eksternal
+		JumlahIstirahat					: integer;
+		JumlahMakan						: integer;
+		JumlahAksi						: integer;
+		TanggalHariIni					: TDateTime;
+	end;
+	
+	tabSimulasi	= record
+		tab	: array [arrMin..arrMax] of simulasi;
+		neff	: integer;
+	end;
+
+	var //Daftar variabel global
+
+	nomor_simulasi : integer; 
 	
 implementation
 
